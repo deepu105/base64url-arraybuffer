@@ -46,9 +46,9 @@ const arrayBuffer = decode(base64url);
 ```javascript
 const base64url = require("base64url-arraybuffer");
 
-const base64url = base64url.encode(arrayBuffer);
+const base64urlString = base64url.encode(arrayBuffer);
 
-const arrayBuffer = base64url.decode(base64url);
+const arrayBuffer = base64url.decode(base64urlString);
 ```
 
 ### Browser
