@@ -11,8 +11,9 @@ const base64urlRegex = /^([0-9a-zA-Z\-_]{4})*([0-9a-zA-Z\-_]{3}=?)?$/;
 
 /**
  * Decode a base64url string to an ArrayBuffer.
- * @param {string} base64url
- * @returns {ArrayBuffer}
+ * @param {string} base64url - The base64url string to decode.
+ * @returns {ArrayBuffer} - The decoded ArrayBuffer.
+ * @throws {Error} - If the base64url string is invalid.
  */
 export function decode(base64url) {
   if (!base64urlRegex.test(base64url)) {
@@ -44,8 +45,8 @@ export function decode(base64url) {
 
 /**
  * Encode an ArrayBuffer to a base64url string.
- * @param {ArrayBuffer} arrayBuffer
- * @returns {string}
+ * @param {ArrayBuffer} arrayBuffer - The ArrayBuffer to encode.
+ * @returns {string} - The encoded base64url string.
  */
 export function encode(arrayBuffer) {
   let uint8Array = new Uint8Array(arrayBuffer);
@@ -68,4 +69,23 @@ export function encode(arrayBuffer) {
       break;
   }
   return base64url;
+}
+
+/**
+ * Convert an ArrayBuffer to a string.
+ * @param {ArrayBuffer} arrayBuffer - The ArrayBuffer to convert.
+ * @returns {string} - The converted string.
+ */
+export function arrayBufferToString(arrayBuffer) {
+  return new TextDecoder().decode(arrayBuffer);
+}
+
+/**
+ * Convert a string to an ArrayBuffer.
+ * @param {string} str - The string to convert.
+ * @returns {ArrayBuffer} - The converted ArrayBuffer.
+ */
+export function stringToArrayBuffer(str) {
+  const encoder = new TextEncoder();
+  return encoder.encode(str).buffer;
 }

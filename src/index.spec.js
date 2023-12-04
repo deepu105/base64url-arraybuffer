@@ -1,4 +1,4 @@
-import { decode, encode } from './index';
+import { decode, encode, stringToArrayBuffer, arrayBufferToString } from './index';
 
 describe('decode', () => {
   it('should decode a valid base64url string', () => {
@@ -33,11 +33,6 @@ describe('decode', () => {
   });
 });
 
-function stringToArrayBuffer(str) {
-  const encoder = new TextEncoder();
-  return encoder.encode(str).buffer;
-}
-
 describe('encode', () => {
   it('should encode an ArrayBuffer into a base64url string', () => {
     const arrayBuffer = stringToArrayBuffer('Hello world');
@@ -55,5 +50,35 @@ describe('encode', () => {
     const arrayBuffer = stringToArrayBuffer('Hello world');
     const result = encode(arrayBuffer);
     expect(result).not.toContain('=');
+  });
+});
+
+describe('stringToArrayBuffer', () => {
+  it('should convert a string to an ArrayBuffer', () => {
+    const str = 'Hello world';
+    const expectedArrayBuffer = new Uint8Array([72, 101, 108, 108, 111, 32, 119, 111, 114, 108, 100]).buffer;
+    const result = stringToArrayBuffer(str);
+    expect(result).toEqual(expectedArrayBuffer);
+  });
+
+  it('should convert an empty string to an empty ArrayBuffer', () => {
+    const str = '';
+    const expectedArrayBuffer = new ArrayBuffer(0);
+    const result = stringToArrayBuffer(str);
+    expect(result).toEqual(expectedArrayBuffer);
+  });
+});
+
+describe('arrayBufferToString', () => {
+  it('should convert an ArrayBuffer to a string', () => {
+    const arrayBuffer = new Uint8Array([72, 101, 108, 108, 111, 32, 119, 111, 114, 108, 100]).buffer;
+    const result = arrayBufferToString(arrayBuffer);
+    expect(result).toBe('Hello world');
+  });
+
+  it('should convert an empty ArrayBuffer to an empty string', () => {
+    const arrayBuffer = new ArrayBuffer(0);
+    const result = arrayBufferToString(arrayBuffer);
+    expect(result).toBe('');
   });
 });

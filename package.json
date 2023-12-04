@@ -24,8 +24,8 @@
   "homepage": "https://github.com/deepu105/base64url-arraybuffer#readme",
   "type": "module",
   "source": "src/index.js",
-  "main": "dist/main.cjs.js",
-  "module": "dist/main.esm.js",
+  "main": "dist/main.cjs",
+  "module": "dist/main.mjs",
   "browser": "dist/main.umd.js",
   "files": [
     "dist"
