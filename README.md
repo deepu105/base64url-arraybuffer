@@ -62,3 +62,11 @@ const arrayBuffer = base64url.decode(base64url);
   const arrayBuffer = base64url.decode(base64url);
 </script>
 ```
+
+## License
+
+MIT
+
+## Crafted by
+
+Deepu K Sasidharan [ [website](https://deepu.tech/) | [Linkedin](https://www.linkedin.com/in/deepu05) | [GitHub](https://github.com/deepu105) | [Twitter](https://twitter.com/deepu105) | [Mastodon](https://mastodon.social/@deepu105) ]
