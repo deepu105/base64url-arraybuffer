@@ -1,6 +1,6 @@
 {
   "name": "base64url-arraybuffer",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Encode and Decode Base64URLs into ArrayBuffers",
   "repository": {
     "type": "git",
