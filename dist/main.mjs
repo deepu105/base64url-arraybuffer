@@ -10,11 +10,12 @@ const base64urlRegex = /^([0-9a-zA-Z\-_]{4})*([0-9a-zA-Z\-_]{3}=?)?$/;
 /**
  * Decode a base64url string to an ArrayBuffer.
  * @param {string} base64url - The base64url string to decode.
+ * @param {boolean} dontValidate - Disable validation.
  * @returns {ArrayBuffer} - The decoded ArrayBuffer.
  * @throws {Error} - If the base64url string is invalid.
  */
-function decode(base64url) {
-  if (!base64urlRegex.test(base64url)) {
+function decode(base64url, dontValidate) {
+  if (!dontValidate && !base64urlRegex.test(base64url)) {
     throw new Error('Invalid base64url string');
   }
 
