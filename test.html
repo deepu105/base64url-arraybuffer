@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Base64 URL Encoder</title>
+</head>
+
+<body>
+  <script src="https://unpkg.com/base64url-arraybuffer"></script>
+
+  <script>
+
+    const base64urls = base64url.encode(base64url.stringToArrayBuffer("Hello World"));
+
+    const arrayBuffer = base64url.decode(base64urls);
+
+    console.log(base64url.arrayBufferToString(arrayBuffer));
+
+  </script>
+</body>
+
+</html>

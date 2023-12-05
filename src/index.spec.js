@@ -8,6 +8,12 @@ describe('decode', () => {
     expect(decodedString).toBe('Hello world');
   });
 
+  it('should decode an invalid base64url string when specifying dontValidate', () => {
+    const base64url = 'S12eUXkRSpmTBZXTylRI6A'; // "Hello world" in base64url
+    const arrayBuffer = decode(base64url, true);
+    expect(arrayBuffer.byteLength).toBe(16);
+  });
+
   it('should decode a valid base64url string wil all chars', () => {
     const base64url = 'YDEyMzQ1Njc4OTAtPX4hQCMkJV4mKigpXytxd2VydHl1aW9wW11ce318YXNkZmdoamtsOyc6Inp4Y3Zibm0sLi88Pj8gUVdFUlRZVUlPUEFTREZHSEpLTFpYQ1ZCTk0'; // "Hello world" in base64url
     const arrayBuffer = decode(base64url);
