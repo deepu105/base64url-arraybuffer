@@ -54,7 +54,7 @@ const arrayBuffer = base64url.decode(base64urlString);
 ### Browser
 
 ```html
-<script src="https://unpkg.com/base64url-arraybuffer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Base64URL-ArrayBuffer/1.1.0/main.umd.min.js"></script>
 
 <script>
   const base64url = base64url.encode(arrayBuffer);
